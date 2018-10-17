@@ -5,14 +5,7 @@ import { Observable } from 'rxjs/Rx';
 import { Router } from '@angular/router';
 import { RegisterService } from './register.service';
 import swal from 'sweetalert2'
-/*
-export interface User {
-  user_name: string;
-  email: string;
-  password: string;
-  phone_number: string;
-}
-*/
+
 
 @Component({
   selector: 'app-register',
@@ -21,9 +14,8 @@ export interface User {
 })
 export class RegisterComponent implements OnInit {
 register : any = {};
-//reg : any;
-//data:any;
 user: any;
+
   constructor(private router:Router,private reg:RegisterService) { }
 
   ngOnInit() {
@@ -35,17 +27,32 @@ user: any;
 
    );
 */
-
-
   }
-
-
 registersave(){
+    var tanent_data={
+    "tenant" :
+    {
+        "tenant_name":this.register.tenant_name,
+        "address_line1":this.register.address_line1,
+        "address_line2":this.register.address_line2,
+        "city":this.register.city,
+        "state":this.register.state,
+        "country":this.register.country,
+        "pincode": this.register.pincode,
+          "users_attributes": [{
+               "first_name":this.register.firstname,
+               "last_name":this.register.lastname,
+               "email":this.register.email,
+               "password":this.register.password,
+               "phone_number":this.register.phone_number,
+               "role_id": 1,
+               "user_type_id": 1
+        }]
+    }
 
-  console.log(this.register);
-  //this.data = {"user_name": this.user_name,"email": this.email,"password": this.password,"phone_number": this.phone_number}
- 
-   this.reg.userregister(this.register).subscribe( res => {
+}
+console.log(this.tanent_data);
+    this.reg.userregister(tanent_data).subscribe( res => {
     this.user = res;
          if(this.user){
         swal  ("Registered!", "You Have Sucessfully Registered", "success");
@@ -60,12 +67,6 @@ registersave(){
          return Observable.throw(error);
        }
    );
-
-
-
 }
-
-
-
 
 }

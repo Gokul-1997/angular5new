@@ -16,6 +16,10 @@ export class DashboardService {
   constructor(public http:HttpClient) { }
 
 
+sendmailtest(data) {
+        return this.http.post('http://192.168.1.107:5500/ideas/send_now',{"idea":data});
+    }
+
 /*
   
 userstatus() {

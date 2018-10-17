@@ -1,8 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
-
-
 import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
@@ -13,33 +10,12 @@ import { TestpageComponent } from './testpage/testpage.component';
 
 
 const routes: Routes = [
-  { 
-  	path: '', 
-  component: LoginComponent
-
-  },
-  {
-  	path:'register',
-
-  	component: RegisterComponent
-  },
-  {
-  	path :'forget',
-  	component : ForgetComponent
-  },{
-    path:'dashboard',
-     component : DashboardComponent
-
-  },{
-    path :'view',
-    component : ViewComponent
-  },
-  {
-    path : 'testpage',
-    component : TestpageComponent
-  }
-
-
+  {path: '',component: LoginComponent},
+  {path:'register',component: RegisterComponent},
+  {path :'forget',component : ForgetComponent},
+  {path:'dashboard',component : DashboardComponent},
+  {path :'view',component : ViewComponent},
+  {path : 'testpage',component : TestpageComponent}
 ];
 
 @NgModule({

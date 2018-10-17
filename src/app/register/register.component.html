@@ -9,8 +9,8 @@
 <div class="container">
 
 
-     <div *ngFor="let use of user">{{use.email}}
-     {{use.name}}</div>
+    <!--  <div *ngFor="let use of user">{{use.email}}
+     {{use.name}}</div> -->
 
 <article class="card-body mx-auto" style="max-width: 400px;">
     <h4 class="card-title mt-3 text-center">Create Account</h4>
@@ -20,41 +20,22 @@
         <div class="input-group-prepend">
             <span class="input-group-text"> <i class="fa fa-user"></i> </span>
          </div>
-        <input name="name" class="form-control" placeholder="Full name" type="text" [(ngModel)]="register.first_name">
+        <input name="name" class="form-control" placeholder="tenant_name" type="text" [(ngModel)]="register.tenant_name">
     </div> <!-- form-group// -->
     <div class="form-group input-group">
-        <div class="input-group-prepend">
-            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
-         </div>
-        <input name="name" class="form-control" placeholder="Full name" type="text" [(ngModel)]="register.last_name">
-    </div> <!-- form-group// -->
-    <div class="form-group input-group">
-        <div class="input-group-prepend">
-            <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
-         </div>
-        <input name="email" class="form-control" placeholder="Email address" type="email" [(ngModel)]="register.email">
-    </div> <!-- form-group// -->
-    <div class="form-group input-group">
-        <div class="input-group-prepend">
-            <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
-        </div>
-    
-        <input name="phonenumber" class="form-control" placeholder="Phone number" type="text" [(ngModel)]="register.phone_number">
-    </div> <!-- form-group// -->
-   
-    <div class="form-group input-group">
-        <div class="input-group-prepend">
-            <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
-        </div>
-        <input name="password" class="form-control" placeholder="Create password" type="password" [(ngModel)]="register.password">
-    </div> <!-- form-group// -->
- <div class="form-group input-group">
         <div class="input-group-prepend">
             <span class="input-group-text"> <i class="fa fa-address-card"></i> </span>
         </div>
-        <input name="password" class="form-control" placeholder="Address" type="address" [(ngModel)]="register.address">
-    </div> <!-- form-group// -->
+        <input name="password" class="form-control" placeholder="address1" type="address" [(ngModel)]="register.address1">
+    </div> 
      <div class="form-group input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-address-card"></i> </span>
+        </div>
+        <input name="password" class="form-control" placeholder="address2" type="address" [(ngModel)]="register.address2">
+    </div>
+
+    <div class="form-group input-group">
         <div class="input-group-prepend">
             <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
         </div>
@@ -70,24 +51,53 @@
         <div class="input-group-prepend">
             <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
         </div>
-        <input name="password" class="form-control" placeholder="Contry" type="contry" [(ngModel)]="register.contry">
+        <input name="password" class="form-control" placeholder="Contry" type="contry" [(ngModel)]="register.country">
     </div> <!-- form-group// -->
-
-
-
-
-
-
-
-
     <div class="form-group input-group">
         <div class="input-group-prepend">
             <span class="input-group-text"> <i class="fa fa-map-pin"></i> </span>
         </div>
         <input name="confirmpassword" class="form-control" placeholder="Pincode" type="pincode" [(ngModel)]="register.pincode">
-    </div> <!-- form-group// -->                                      
+    </div> <!-- form-group// -->
+
+
+ <div class="form-group input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+         </div>
+        <input name="name" class="form-control" placeholder="firstname" type="text" [(ngModel)]="register.firstname">
+    </div>
+
+    <div class="form-group input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+         </div>
+        <input name="name" class="form-control" placeholder="lastname" type="text" [(ngModel)]="register.lastname">
+    </div> <!-- form-group// -->
+    <div class="form-group input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+         </div>
+        <input name="email" class="form-control" placeholder="email" type="email" [(ngModel)]="register.email">
+    </div> <!-- form-group// -->
+    <div class="form-group input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+        </div>
+    
+        <input name="phonenumber" class="form-control" placeholder="phone_number" type="text" [(ngModel)]="register.phone_number">
+    </div> <!-- form-group// -->
+   
+    <div class="form-group input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+        </div>
+        <input name="password" class="form-control" placeholder="Create password" type="password" [(ngModel)]="register.password">
+    </div> <!-- form-group// -->
+ <!-- form-group// -->
+                                           
     <div class="form-group">
-        <button type="submit" class="btn btn-primary btn-block" (click)="registersave()"> Create Account  </button>
+        <button type="submit" class="btn btn-primary btn-block" (click)="registersave()" [disabled]="!register.password"> Create Account  </button>
     </div> <!-- form-group// -->      
     <p class="text-center">Have an account? <a class="nav-link"  [routerLink]="['']">Log In</a> </p>                                                                 
 </form>
