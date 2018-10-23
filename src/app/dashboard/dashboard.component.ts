@@ -13,21 +13,31 @@ import swal from 'sweetalert2'
 })
 export class DashboardComponent implements OnInit {
 send : any = {};
+data : any = {};
+dash : any = {};
   constructor(private router:Router,private dashboard:DashboardService) { }
 
   ngOnInit() {
-   /* this.dash.userstatus().subscribe( res => {
-    this.user = res;
-       console.log(this.user)
+    
+  this.dashboard.tokenuse().subscribe( res => {
+    this.dash = res;
+       console.log(this.dash);
    },
 
-   );*/
+   );
 
+  
   }
-
+  
 
 sendmailsave(){
-this.dashboard.sendmailtest(this.send).subscribe( res => {
+
+
+
+
+
+  
+/*this.dashboard.sendmailtest(this.send).subscribe( res => {
     this.data = res;
          if(this.data){
         swal  ("Send!", "You Have Sucessfully Mail Send", "success");
@@ -36,7 +46,8 @@ this.dashboard.sendmailtest(this.send).subscribe( res => {
           swal("Mail Not Send!", "Send Failed" , "error");
         }
       },
-  /* error => {
+
+  error => {
          console.error("Error saving food!");
          return Observable.throw(error);
        }

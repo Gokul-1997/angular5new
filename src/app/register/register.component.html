@@ -94,10 +94,10 @@
         </div>
         <input name="password" class="form-control" placeholder="Create password" type="password" [(ngModel)]="register.password">
     </div> <!-- form-group// -->
- <!-- form-group// -->
+   
                                            
     <div class="form-group">
-        <button type="submit" class="btn btn-primary btn-block" (click)="registersave()" [disabled]="!register.password"> Create Account  </button>
+        <button type="submit" class="btn btn-primary btn-block" (click)="registersave()" [disabled]="!register.password" [disabled]="!register.email"> Create Account  </button>
     </div> <!-- form-group// -->      
     <p class="text-center">Have an account? <a class="nav-link"  [routerLink]="['']">Log In</a> </p>                                                                 
 </form>

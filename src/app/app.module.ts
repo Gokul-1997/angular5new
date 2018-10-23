@@ -6,23 +6,27 @@ import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';  
 import { MaterialModule } from './material.module';
 import {MatTreeModule} from '@angular/material/tree';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 //List Of Service
 import { LoginService } from './login/login.service';
 import { RegisterService } from './register/register.service';
 import { ForgetService } from './forget/forget.service';
 import { DashboardService } from './dashboard/dashboard.service';
-import { ViewService } from './view/view.service';
 import { TestpageService } from './testpage/testpage.service';
+import { RefreshtokenInterceptor } from './token/refreshtoken.interceptor';
+import { AuthGuardService } from './token/auth-guard.service';
 
 
-//List Of Modules
+
+
+//List Of Component 
+import { AppService } from './app.service';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ForgetComponent } from './forget/forget.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { ViewComponent } from './view/view.component';
 import { TestpageComponent } from './testpage/testpage.component';
 
 
@@ -33,7 +37,6 @@ import { TestpageComponent } from './testpage/testpage.component';
     RegisterComponent,
     ForgetComponent,
     DashboardComponent,
-    ViewComponent,
     TestpageComponent
   ],
   imports: [
@@ -47,11 +50,15 @@ import { TestpageComponent } from './testpage/testpage.component';
   ],
   providers: [
     LoginService,
+    AppService,
     RegisterService,
     ForgetService,
     DashboardService,
-    ViewService,
-    TestpageService
+    TestpageService,
+    AuthGuardService,
+       { provide: HTTP_INTERCEPTORS,
+                 useClass: RefreshtokenInterceptor,
+                 multi: true }
   ],
   bootstrap: [AppComponent]
   })

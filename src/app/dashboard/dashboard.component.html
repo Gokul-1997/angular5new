@@ -1,52 +1,62 @@
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
 
-    <div class="container">    
-        <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
-            <div class="panel panel-info" >
-                    <div class="panel-heading">
-                        <div class="panel-title">Mail Send</div>
-                      <!--   <div style="float:right; font-size: 122%; position: relative; top:-30px" ><a class="nav-link" [routerLink]="['forget']">Forgot password?</a></div> -->
-                    </div>     
+<!-- Side Navbar -->
 
-                    <div style="padding-top:30px" class="panel-body" >
+  <div class="side-navbar-wrapper">
+    <div class="sidenav-header d-flex align-items-center justify-content-center">
+      <!-- <img src="assets/images/logo.jpg"> -->
+    </div>
+    <div class="main-menu">
+      <ul id="side-main-menu" class="side-menu list-unstyled">        
+              <span>Home</span>
+<!-- 
+        <li><i class="fa fa-th-large" aria-hidden="true" ></i><span>Dashboard</span></li>
 
-                        <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
-                            
-                        <form id="loginform" class="form-horizontal" role="form">
-                                    
-                            <div style="margin-bottom: 25px" class="input-group">
-                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                        <input id="login-username" type="text" class="form-control" name="username" value="" placeholder="username or email" [(ngModel)]="send.emailto">                                        
-                                    </div>
-                                    <div style="margin-bottom: 25px" class="input-group">
-                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                        <input id="login-username" type="text" class="form-control" name="username" value="" placeholder="username or email" [(ngModel)]="send.subject">                                        
-                                    </div>
-                                    <div style="margin-bottom: 25px" class="input-group">
-                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                        <textarea id="login-username" type="text" class="form-control" name="username" value="" placeholder="username or email" [(ngModel)]="send.describation"></textarea>                                        
-                                    </div>
-                        
-                                <div style="margin-top:10px" class="form-group">
-                                    <!-- Button -->
+        <li> <i class="fa fa-bell-o" aria-hidden="true"></i><span>Alarms</span></li>
 
-                                    <div class="col-sm-12 controls">
-                                      <button id="btn-login" href="#" class="btn btn-success" (click)="sendmailsave()" [disabled]="!send.emailto">send</button>
-                                    </div>
-                                
-                                 <div class="col-sm-12 controls">
-                                      <button id="btn-login" href="#" class="btn btn-success" (click)="sendlater()" [disabled]="!send.emailto">send later</button>
-                                    </div>
-                                </div>
+        <li> <i class="fa fa-exclamation-triangle" aria-hidden="true"></i><span>Alerts</span></li>
+         
+        <li> <i class="fa fa-folder-open-o" aria-hidden="true"></i><span>Alarms Report</span></li>
+        <li><i class="fa fa-history" aria-hidden="true"></i><span>Log</span></li>
+
+         <li><i class="fa fa-file-text-o" aria-hidden="true"></i><span>Report</span></li>
 
 
-                            
-                            </form>     
+       <li><i class="fa fa-bar-chart" aria-hidden="true"></i><span>Charts</span></li>
 
-</div>
-</div>
-</div>
-</div>
+       <li><i class="fa fa-line-chart" aria-hidden="true"></i><span>Cycle Start Chart</span></li>
+
+       <li><i class="fa fa-wrench" aria-hidden="true"></i><span>Notification Setting</span></li>
+        <li><i class="fa fa-list-alt" aria-hidden="true"></i><span>Masters</span> -->
+         <!--  <div class="arrow rotate pull-right"><i></i>
+          </div>
+        
+          <br> -->
+         <!--  <ul  class="list-unstyled">
+            <li> <i class="fa fa-desktop" aria-hidden="true"></i><span>Machine
+            </span></li>
+            <li> <i class="fa fa-clock-o" aria-hidden="true"></i><span>Shift</span></li>
+            <li> <i class="fa fa-users" aria-hidden="true"></i><span>Client<span></li>
+            <li> <i class="fa fa-handshake-o" aria-hidden="true"></i><span>Job</span></li>
+            <li> <i class="fa fa-user-o" aria-hidden="true"></i><span>User</span></li>
+            <li> <i class="fa fa-user-circle-o" aria-hidden="true"></i><span>Operator</span></li>
+            <li> <i class="fa fa-user-plus" aria-hidden="true"></i>
+            <span>Operator Allocation</span></li>  -->
+          
+          </ul>
+   <!--      </li>
+      </ul> 
+    </div> -->
+  </div> 
+
+
+
+<script type="text/javascript">
+
+</script>
+
+<style type="text/css">
+
+.activebar{
+background-color:#f7941d;
+}
+</style>

@@ -13,6 +13,7 @@ import swal from 'sweetalert2'
 })
 export class ForgetComponent implements OnInit {
 forget : any = {};
+data : any = {};
   constructor(private router:Router,private forgetservice:ForgetService) { }
 
   ngOnInit() {
@@ -28,11 +29,11 @@ this.forgetservice.forget_mail(this.forget).subscribe( res => {
           swal("Mail Not Send!", "Send Failed" , "error");
         }
       },
-  /* error => {
+  error => {
          console.error("Error saving food!");
          return Observable.throw(error);
        }
-   );*/
+   );
 
 }
 }

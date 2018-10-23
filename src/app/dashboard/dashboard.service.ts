@@ -20,12 +20,11 @@ sendmailtest(data) {
         return this.http.post('http://192.168.1.107:5500/ideas/send_now',{"idea":data});
     }
 
-/*
+
   
-userstatus() {
-        return this.http.get('http://192.168.1.80:4300/users/index');
+tokenuse() {
+        return this.http.get('http://192.168.1.71:3050/api/v1/usersetting?id=1');
     }
-*/
 
 
 }

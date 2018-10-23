@@ -17,7 +17,7 @@ userstatus() {
     }
 */
 userregister(data) {
-        return this.http.post('http://192.168.1.71:80/api/v1/auth/register',data);
+        return this.http.post('http://192.168.1.71:3050/api/v1/auth/register',data);
     }
 
 
