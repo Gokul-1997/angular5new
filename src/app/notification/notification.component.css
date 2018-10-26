@@ -1,0 +1,121 @@
+
+    .alrm_card {
+        margin: 9px 10px;
+    }
+
+    .alrm_card .row {
+        display: block !important;
+    }
+
+    .alrm_card h1 {
+        font-size: 20px;
+        margin-bottom: 5px;
+    }
+
+    .alrm_card span {
+        color: #f69222;
+        padding-right: 5px;
+    }
+
+    .alrm_switch {
+        position: absolute;
+        right: 10px;
+        margin-top: 9px;
+    }
+
+    .alrm_switch .item {
+        padding: 30px 40px;
+        background: none;
+
+    }
+
+    .edit_time {
+        background: #f69222;
+        border: none;
+        color: white;
+        border-radius: 5px;
+    }
+
+    .switch_holder .switch {
+        position: relative;
+        display: inline-block;
+        width: 53px;
+        height: 25px;
+        /* margin: 10px; */
+        float: right;
+    }
+
+    .switch_holder .switch input {
+        display: none;
+    }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 18px;
+        width: 18px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+    input:checked+.slider {
+        background-color: #4cd964;
+    }
+
+    input:focus+.slider {
+        box-shadow: 0 0 1px #4cd964;
+    }
+
+    input:checked+.slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+    }
+
+    /* Rounded sliders */
+
+    .slider.round {
+        border-radius: 34px;
+    }
+
+    .slider.round:before {
+        border-radius: 50%;
+    }
+    section.statistics p {
+    font-size:17px;
+    margin-bottom: 5px !important;
+    color: #f7941f;
+    }
+    .switch_holder{
+        border-top: 1px solid #ddd;
+        margin-top: 20px;
+        padding: 10px 0;
+        margin-bottom: 15px;
+    }
+    .switch_holder p{
+        float: left;
+        line-height:25px;
+        color: #838383!important;
+        font-size: 11px!important;
+    }
+    span.reason{
+        color: #f7941f;
+    }
+    .machine_register_wrapper{
+        margin-bottom: 30px!important;
+    }

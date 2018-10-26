@@ -1,1 +1,296 @@
+<style>
+  ul{
+list-style: none;
+padding: 0;
+margin:0;
+}
+.ic_notify{
+background: #ec6e17;
+width: 42px;
+height: 42px;
+border-radius: 50%;
+text-align: center;
+float: left;
+margin-right: 10px;
+line-height: 42px;
+display: none;
+}
+.ic_notify i{
+color: #fff;
+font-size: 16px;
+
+}
+.notify_right{
+float: left;
+
+
+}
+.notify_right h1, .notify_right h4, .notify_right h2{
+margin:0;
+padding: 0;
+
+}
+.notify_right h4
+{
+font-size: 12px;
+font-style: italic;
+color: #ef8850;
+}
+.notify_right h1
+{ 
+font-size: 19px;
+color: #1d1d1d;
+margin: 4px 0px;
+}
+.notify_right h2
+{
+background: #efefef;
+padding: 5px;
+font-size: 13px;
+word-break: break-word;
+}
+.notify_right h2 span
+{
+color: #ec6e17;
+}
+
+h4.alarm_unit {
+padding: 10px;
+background: #cacaca;
+font-size: 15px;
+font-weight: 600;
+position: sticky;
+top: 40px;
+}
+.alarm_row{
+border-bottom: 1px solid #dcdcdc;
+padding: 12px 14px;
+background-color: #f2f2f2;
+margin-bottom: 5px;
+}
+
+.notify_right {
+float: left;
+width: 100%;
+} 
+  </style>
+
+<nav class="side-navbar" >
+  <div class="side-navbar-wrapper">
+    <div class="sidenav-header d-flex align-items-center justify-content-center">
+      <img src="assets/images/logo.jpg" alt="person">
+    </div>
+    <div class="main-menu" >
+      <ul id="side-main-menu" class="side-menu list-unstyled">        
+       
+          <li> <a  [routerLink]="['frontpage']" ><i class="fa fa-home" aria-hidden="true"></i><span>Home</span></a></li>
+
+        <li><a  [routerLink]="['dashboard']" ><i class="fa fa-th-large" aria-hidden="true" ></i><span>Dashboard</span></a></li>
+
+        <!--li> <a  ng-click="pageverification('/#!/maintanance')"> <i class="fa fa-cog" aria-hidden="true"></i><span>Maintenance</span></a></li-->
+        <!-- <li  > <a style="cursor: not-allowed; background: #393836;"  ><i class="fa fa-cog" ></i><span>Maintenance <span class="badge badge-danger" style="border-radius: 5px; padding: 5px;">Feature...</span></a></li> -->
+
+        <li > <a [routerLink]="['alarm']" ><i class="fa fa-bell-o" aria-hidden="true"></i><span>Alarms</span></a></li>
+
+        <li > <a [routerLink]="['alert']" ><i class="fa fa-exclamation-triangle" aria-hidden="true"></i><span>Alerts</span></a></li>
+         
+        <li> <a [routerLink]="['alarmreport']" ><i class="fa fa-folder-open-o" aria-hidden="true"></i><span>Alarms Report</span></a></li>
+        <li ><a [routerLink]="['log']" ><i class="fa fa-history" aria-hidden="true"></i><span>Log</span></a></li>
+
+        <!--li> <a  ng-click="pageverification('/#!/operator')"><i class="fa fa-address-card-o" aria-hidden="true"></i><span>Operator Entry</span></a></li-->
+        <!-- <li > <a style="cursor: not-allowed; background: #393836;"  ><i class="fa fa-address-card-o" ></i><span>Operator Entry <span class="badge badge-danger" style="border-radius: 5px; padding: 5px;">Feature...  </span></a> </span></li> -->
+
+        <!--li><a  ng-click="pageverification('/#!/report')"><i class="fa fa-file" aria-hidden="true"></i><span>Report</span></a></li-->
+         <li><a [routerLink]="['report']" ><i class="fa fa-file-text-o" aria-hidden="true"></i><span>Report</span></a></li>
+
+        <!--li><a  ng-click="pageverification('/#!/export')"><i class="fa fa-file" aria-hidden="true"></i><span>Export</span></a></li-->
+        <!-- <li> <a style="cursor: not-allowed; background: #393836;"  ><i class="fa fa-arrow-circle-o-up" ></i><span>Export <span class="badge badge-danger" style="border-radius: 5px; padding: 5px;">Feature... </span></a></li> -->
+
+       <li ><a  ><i class="fa fa-bar-chart" aria-hidden="true"></i><span>Charts</span></a></li>
+
+       <li ><a [routerLink]="['notification']" ><i class="fa fa-wrench" aria-hidden="true"></i><span>Notification Setting</span></a></li>
+        <li > <a  ><i class="fa fa-list-alt" aria-hidden="true"></i><span>Masters</span>
+          <div class="arrow rotate pull-right"><i></i></div></a>
+        
+          <br>
+          <ul   class="list-unstyled">
+            <li> <a [routerLink]="['machinepage']" ><i class="fa fa-desktop" aria-hidden="true"></i><span>Machine
+            </span></a></li>
+            <li > <a [routerLink]="['shiftregister']" ><i class="fa fa-clock-o" aria-hidden="true"></i><span>Shift</span></a></li>
+            <li > <a  ><i class="fa fa-users" aria-hidden="true"></i><span>Client</span></a></li>
+            <li> <a  ><i class="fa fa-handshake-o" aria-hidden="true"></i><span>Job</span></a></li>
+            <li> <a ><i class="fa fa-user-o" aria-hidden="true"></i><span>User</span></a></li>
+            <li> <a  ><i class="fa fa-user-circle-o" aria-hidden="true"></i><span>Operator</span></a></li>
+            <li > <a><i class="fa fa-user-plus" aria-hidden="true"></i>
+            <span>Operator Allocation</span></a></li>
+            <!--li> <a  ng-click="pageverification('/#!/rolecreation')"><i class="fa fa-user-o" aria-hidden="true"></i> Roles</a></li-->
+            <br>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="page home-page"> 
+  <!-- navbar-->
+  <div  >
+       <header class="header">
+    <nav class="navbar">
+      <div class="container-fluid">
+        <div class="navbar-holder d-flex align-items-center justify-content-between">
+          <div class="navbar-header">
+            <a id="toggle-btn"  (click)="toggle()" class="menu-btn"><i class="fa fa-bars" aria-hidden="true"></i></a>
+            <a  class="navbar-brand">
+              <div class="brand-text hidden-sm-down"><strong class="text-primary"><div></div></strong>
+              </div></a>
+          </div>
+          <!-- <span> <button type="submit" class="btn btn-primary" ng-click="alert('xx')" id="opn"><i class="fa fa-bell-o" aria-hidden="true"></i>Alarms</button></span> -->
+          <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center nav_ic">
+              <li class="nav-item dropdown" > <a (click)="openleft()" id="opn" title="Recent Alarms" rel="nofollow"  class="nav-link"><i class="fa fa-bell"></i></a></li>
+            <!-- <li class="nav-item dropdown"> <a id="notifications" rel="nofollow" data-target="#"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="fa fa-bell"></i><span class="badge badge-warning">12</span></a>
+              <ul aria-labelledby="notifications" class="dropdown-menu">
+                <li><a rel="nofollow"  class="dropdown-item"> 
+                    <div class="notification d-flex justify-content-between">
+                      <div class="notification-content"><i class="fa fa-envelope"></i>You have 6 new messages </div>
+                      <div class="notification-time"><small>4 minutes ago</small></div>
+                    </div></a></li>
+                <li><a rel="nofollow"  class="dropdown-item"> 
+                    <div class="notification d-flex justify-content-between">
+                      <div class="notification-content"><i class="fa fa-twitter"></i>You have 2 followers</div>
+                      <div class="notification-time"><small>4 minutes ago</small></div>
+                    </div></a></li>
+                <li><a rel="nofollow"  class="dropdown-item"> 
+                    <div class="notification d-flex justify-content-between">
+                      <div class="notification-content"><i class="fa fa-upload"></i>Server Rebooted</div>
+                      <div class="notification-time"><small>4 minutes ago</small></div>
+                    </div></a></li>
+                <li><a rel="nofollow"  class="dropdown-item"> 
+                    <div class="notification d-flex justify-content-between">
+                      <div class="notification-content"><i class="fa fa-twitter"></i>You have 2 followers</div>
+                      <div class="notification-time"><small>10 minutes ago</small></div>
+                    </div></a></li>
+                <li><a rel="nofollow"  class="dropdown-item all-notifications text-center"> <strong> <i class="fa fa-bell"></i>view all notifications                                            </strong></a></li>
+              </ul>
+            </li>
+             -->
+             <!-- <li class="nav-item"><a id="opn"  ><i  class="fa fa-bell-o" aria-hidden="true"></i></a></li> -->
+            <a  class="nav-link logout" data-toggle="modal" data-target="#exampleModalLabel3" >{{username}}<i  class="fa fa-pencil" aria-hidden="true"></i></a>
+            <li class="nav-item" (click)="logout()"><a  title="Logout" style="cursor: pointer;"  class="nav-link logout"> <i class="fa fa-sign-out"></i></a></li>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  
+
+<!-- <!- modal -->
+<div class="modal fade" id="exampleModalLabel3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel3" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel3">Edit User Profile</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body machine-registration">
+              <form id="login-form" name="editprof">            
+      <div class="row">
+        <div class="col-md-6 col-sm-12">
+          <div class="form-group">
+            <label  class="label-custom">First Name<span style="color: red;">*</span></label>
+            <input id="register-username" type="text" name="first_name" class="form-control" ng-model="profile_edit.first_name" ng-Required="true">
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-12">
+          <div class="form-group">
+            <label  class="label-custom">Last Name</label>
+            <input id="register-username1" type="text" name="last_name" class="form-control" ng-model="profile_edit.last_name" ng-Required="true">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 col-sm-12">
+          <div class="form-group">
+            <label for="register-email" class="label-custom">Email Address<span style="color: red;">*</span></label>
+            <input id="register-email" type="email" name="email" class="form-control" ng-model="profile_edit.email_id" ng-keydown="emailvalidate()" ng-Required="true">
+            <span style="color: red;">{{errormsg}}</span>
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-12">
+          <div class="form-group">
+            <label for="register-passowrd" class="label-custom">Password <span style="color: red;">*</span></label>
+            <input id="register-passowrd" type="password" name="password" class="form-control"  ng-model="profile_edit.password" ng-Required="true">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 col-sm-12">
+          <div class="form-group">
+            <label class="label-custom">Phone Number<span style="color: red;">*</span></label>
+            <input id="register-username3" type="text" name="phone_number" class="form-control" ng-model="profile_edit.phone_number" ng-pattern="/^(?:\d{10}|\w+@\w+\.\w{2,3})$/" ng-Required="true">
+          </div>
+        </div>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-primary" id="editprof" type="submit" ng-click="usereditForm()" ng-disabled="editprof.$invalid" data-dismiss="modal">Save</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </form>
+      </div>
+  </div>
+</div>
+</div>
+
+
+
+     
+
+<!-- <nav class=" sidebar_right shrink" style="overflow-y: scroll">
+
+<h3> Recent Alarms <i (click)="closeleft()" title="close" class="fa fa-close float-left close-rightbar" style="padding: 10px 0; font-size: 20px"></i></h3>
+<div>
+<div  ng-repeat="(key,Alarm1) in AlarmDash.data">  
+<h4 class="alarm_unit">{{key}}</h4>
+<ul >
+<li class="alarm_row"  ng-repeat="Alarm in Alarm1" ng-show="Alarm.alarm_date !=null">
+  <div class="ic_notify" ><i class="fa fa-hourglass-half" aria-hidden="true"></i></div>
+  <div class="notify_right">
+    <h4>{{Alarm.alarm_date}} {{Alarm.alarm_month}} {{Alarm.alarm_year}} {{Alarm.alarm_time}}</h4>
+    <h1>{{Alarm.machine_name}} </h1>
+    <h2>{{Alarm.alarm.alarm_type}}-{{Alarm.alarm.alarm_number}} : {{ Alarm.alarm.alarm_message }}</h2>
+  </div>
+  <div class="clearfix"></div>
+</li>
+
+</ul>
+</div>
+</div>
+</nav> -->
+
+
+
+
+<div class="sidebar-overlay"></div>
+</div>
+
+
+
 <router-outlet></router-outlet>
+
+<footer class="main-footer" >
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-6">
+          <p>Copyright 2017. All Rights Reserved Yantra24X7.</p>
+        </div>
+        <div class="col-sm-6 text-right">
+          <p><a routerLink="https://www.altiussolution.com" target="_blank" class="external">Terms & Conditions</a>|<a target="_blank" routerLink="https://www.altiussolution.com" class="external">Privacy Policy</a></p>
+         </div>
+      </div>
+    </div>
+</footer>
+</div>

@@ -1,0 +1,326 @@
+<!-- 
+     <section class="statistics section-padding section-no-padding-bottom section_top">
+            <div class="container-fluid">
+                <header>
+
+            <div ng-show="myLoader" class="spinner">
+                <img src="assets/images/spinner.gif" class="myspin">
+            </div>
+  
+                    <h1 class="h3 display reprttop"><i class="fa fa-laptop"></i>Report
+              <a ng-hide="programNo || wise == 'Datewise Utilization'|| wise == 'Monthwise Utilization'" href="" class="btn_top" ng-click="exportData()"><i class="fa fa-share-square-o" aria-hidden="true"></i>Export</a>
+              <a ng-show="programNo" href="" class="btn_top" ng-click="exportData1()"><i class="fa fa-share-square-o" aria-hidden="true"></i>Export</a>
+              <a ng-show="wise == 'Datewise Utilization' || wise == 'Monthwise Utilization'" href="" class="btn_top" ng-click="exportData2()"><i class="fa fa-share-square-o" aria-hidden="true"></i>Export</a>
+              </h1>
+                </header>
+                <div class="card card_status">
+                    <div class="card-block">
+                         <form name="repot">
+                        <div class="row">
+                               
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <div class="form-group">
+                                        <label>Select Machine</label>
+                                        <div class="select">
+                                            <select name="account" class="form-control" ng-options="mc.id as mc.machine_name for mc in allmachines" ng-model="MachineID" ng-change="checkingmachineid()">
+                                                <option value="">ALL</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <div class="form-group">
+                                        <label>Select Type</label>
+                                        <div class="select">
+                                        <select class="form-control" ng-model="types" ng-Required="true" ng-change="mychange(types)">
+                                        <option value="">Select type</option>
+                                       <option value="{{type.value}}" ng-repeat="type in selecttype.data" >{{type.value}}</option>
+                                      
+                                        </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                           
+                            <div class="col-md-2" ng-hide="wise=='Datewise Utilization'|| wise == 'Monthwise Utilization' ">
+                                <div class="form-group">
+                                    <div class="form-group">
+                                        <label>Split</label>
+                                        <div class="select">
+                                        <select class="form-control" ng-model="split" ng-change="checkhour(split.value)" ng-options="val.value for (key , val) in selectsplit.data">
+                                        <option value="">All</option>
+                                        </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                         
+                            <div class="col-md-2">
+                                <div class="form-group" moment-picker="from_date"  format="YYYY-MM-DD" max-date="momentToday" min-date="momentToday2">
+                                    <label>From Date</label>
+                                    <div class="input-group"><span class="input-group-addon"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+                                        <input type="text"  ng-readonly="all" class="form-control" ng-Required="true"  ng-model="from_date"  >
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group" moment-picker="to_date"   format="YYYY-MM-DD" min-date="from_date" max-date="momentToday">
+                                    <label>To Date</label>
+                                    <div class="input-group"><span class="input-group-addon"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+                                        <input type="text" ng-readonly="all" class="form-control"  ng-Required="true"  ng-model="to_date">
+                                    </div>
+                                </div>
+                            </div>
+
+                       
+
+                             <div class="col-md-2" ng-show="wise=='Shiftwise' ">
+                                <div class="form-group">
+                                    <div class="form-group">
+                                        <label>Select Shift</label>
+                                        <div class="select">
+                                            <select name="account" class="form-control" ng-options="sh.id as sh.shift_no for sh in shiftstransfordrop" ng-model="ShiftID"  ng-change="checkingshiftid()">
+                                                <option value="">ALL</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            
+                            <div class="col-md-2" ng-show="wise=='Operatorwise'">
+                                <div class="form-group">
+                            <label>Operator</label>
+                            <div class="select">
+                                <select name="account" class="form-control" ng-options="operator.id as operator.operator_name for operator in operators" ng-model="operator_id"  class="btn btn-default select-width selectpicker form-control" ng-change="checkingopid()">
+                                    <option value="">Select Operator</option>
+                                </select>
+                            </div>
+                            
+                        </div>
+                            </div>
+                            <div class="col-md-2"> 
+                                <div class="form-group">
+                                    <div class="form-group">
+                                        <button class="btn btn-success btn_report" ng-click="generate_report(wise,operator_id)" ng-disabled="repot.$invalid"><i class="fa fa-eye" aria-hidden="true"></i> View Report</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </section> -->
+          
+       
+         <!-- Updates Section -->
+      
+  <section class="updates">
+     <div class="container-fluid">
+         <div class="row">
+             <div class="col-lg-12">
+                <div class="card bar-chart-example">
+        <div ng-hide="programNo || wise == 'Datewise Utilization' || wise == 'Monthwise Utilization'" class="card-block table_overflow" id="exportable">
+  <table class="table table-striped scroll-table report-table">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Shift</th> 
+      <th>Time</th>
+      <th>Operator Name</th>
+      <th>Operator ID</th>
+      <th>Machine Name</th>
+      <th>Machine ID</th>
+      <th>Program Number</th>
+      <th>Job Description</th>
+      <th>Parts Produced</th>
+      <th>Cycle Time</th>
+      <th>dle Time<br>(Hrs) </th>
+      <th>Stop Time<br>(Hrs)</th>
+      <th>Actual Running<br>(Hrs)</th>
+      <th>Actual Working Hours</th>
+      <th>Utilization<br>(%.)</th>
+   <!-- 16 -->
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-click="showme=true" *ngFor="let item of items">
+   
+      <td>{{item.date}}</td>
+      <td>{{item.shift_no}}</td>
+      <td>{{item.time}}</td>
+      <td>{{item.operator_name}}</td>
+      <td>{{item.operator_id}}</td>
+      <td>{{item.machine_type}}</td>
+      <td>{{item.machine_name}}</td>
+      <td>{{item.program_number}}</td>
+      <td>{{item.job_description}}</td>
+      <td>{{item.parts_produced}}</td>
+      <td>{{item.cycle_time}}</td>
+      <td>{{item.idle_time}}</td>
+      <td>{{item.total_downtime}}</td>
+      <td>{{item.actual_running}}</td>
+      <td>{{item.actual_working_hours}}</td>
+      <td>{{item.utilization}}</td>
+    <!-- 16 -->
+    </tr>
+  </tbody>
+  
+</table> 
+
+</div>
+
+
+  <div ng-show="programNo" class="card-block table_overflow" id="exportable1">
+                                <table class="table table-striped scroll-table report-table">
+                                     <thead>
+                                        <tr>
+                                            <th>Date</th>
+                                            <th>Shift</th>
+                                            <th>Time</th>
+                                            <th>Operator Name</th>
+                                            <th>Operator ID</th>
+                                            <th>Machine Name</th>
+                                            <th>Machine ID </th>
+                                            <th>Program Number</th>
+                                            <th>Job Description</th>
+                                            <th>Parts Produced</th>
+                                            <th>Cycle Time<br>(M:S)</th>
+                                            <!-- <th>Loading and Unloading Time(M:S)</th> -->
+                                            <th>Idle Time<br>(Hrs)</th>
+                                            <th>Stop Time<br>(Hrs)</th>
+                                            <th>Actual Running<br>(Hrs)</th>
+                                            <th>Actual Working Hours</th>
+                                            <th>Utilization<br>(%.)</th>                                            
+                                        </tr>
+                                    </thead>
+                                    <tbody >
+                                        
+                                        <tr ng-click="showme=true" *ngFor="let item of items1">
+                                            <td>{{item.date}}</td>
+                                            <td>{{item.shift_no}}</td>
+                                            <td>{{item.time}}</td>
+                                            <td>{{item.operator_name}}</td>
+                                            <td>{{item.operator_id}}</td>
+                                            <td>{{item.machine_type}}</td>
+                                            <td>{{item.machine_name}}</td>
+                                            <td>{{item.program_number}}</td>
+                                            <td>{{item.job_description}}</td>
+                                            <td>{{item.parts_produced}}</td>
+                                            <td>{{item.cycle_time}}</td> 
+                                            <!-- <td>{{item.loading_and_unloading_time}}</td> -->
+                                            <td>{{item.idle_time}}</td>
+                                            <td>{{item.total_downtime}}</td>
+                                            <td>{{item.actual_running}}</td>
+                                            <td>{{item.actual_working_hours}}</td>
+                                            <td>{{item.utilization}}</td>                    
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+
+                            <div ng-show="wise == 'Datewise Utilization' || wise == 'Monthwise Utilization'" class="card-block table_overflow" id="exportable2" >
+                                <table class="table table-striped scroll-table  reports-table">
+                                     <thead>
+                                        <tr >
+                                            <th>Date</th>                                          
+                                            <th>Machine ID</th>
+                                            <th >Machine Name </th>
+                                            <th >Utilization(%.)</th>                                       
+                                           
+                                        </tr>
+                                    </thead>
+                                    <tbody >
+                                        
+                                        <tr ng-click="showme=true" *ngFor="let item of items2">
+                                            <td>{{item.date}}</td>                                        
+                                            <td>{{item.machine_name}}</td>
+                                            <td>{{item.machine_type}}</td>
+                                            <td>{{item.utilization}}</td>
+                                                           
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+</div>
+</div>
+</div>
+</div>  
+</section>   
+
+
+ <div ng-include="'footer.html'"></div>
+
+
+<style>
+.report-table thead tr th:nth-child(2),.report-table tbody tr td:nth-child(2){
+  text-align:center
+}
+.report-table thead tr th:nth-child(10),.report-table tbody tr td:nth-child(10){
+  text-align: center;
+}
+table.report-table thead th{
+  vertical-align: middle!important;
+}
+table.report-table thead{
+    color: #4c4c4c;
+}
+ table.report-table{
+    min-width: 1366px;
+    max-width: 100%;
+    overflow: scroll;
+    margin-top: 20px;
+ }   
+table.report-table tbody {
+    display:block;
+    height:500px;
+    overflow:auto;
+}
+
+table.report-table thead,table.report-table tbody tr {
+    display:table;
+    width:100%;
+    table-layout:fixed;
+}
+table.report-table thead ,table.report-table tfoot{
+    width: 100%;
+    width:calc(100% - 18px);
+}
+
+
+
+.reports-table thead tr th:nth-child(2),.report-table tbody tr td:nth-child(2){
+}
+.reports-table thead tr th:nth-child(10),.report-table tbody tr td:nth-child(10){
+}
+table.reports-table thead th{
+}
+table.reports-table thead{
+    color: #4c4c4c;
+}
+ table.reports-table{
+    min-width: 100%;
+    max-width: 100%;
+    overflow: scroll;
+    margin-top: 20px;
+ }   
+table.reports-table tbody {
+ 
+}
+
+table.reports-table thead,table.report-table tbody tr {
+   
+}
+table.reports-table thead ,table.report-table tfoot{
+
+}
+  
+     
+
+</style>

@@ -20,44 +20,44 @@
         <div class="input-group-prepend">
             <span class="input-group-text"> <i class="fa fa-user"></i> </span>
          </div>
-        <input name="name" class="form-control" placeholder="tenant_name" type="text" [(ngModel)]="register.tenant_name">
+        <input name="tenant_name" class="form-control" placeholder="tenant_name" type="text" [(ngModel)]="register.tenant_name">
     </div> <!-- form-group// -->
     <div class="form-group input-group">
         <div class="input-group-prepend">
             <span class="input-group-text"> <i class="fa fa-address-card"></i> </span>
         </div>
-        <input name="password" class="form-control" placeholder="address1" type="address" [(ngModel)]="register.address1">
+        <input name="address1" class="form-control" placeholder="address1" type="text" [(ngModel)]="register.address1">
     </div> 
      <div class="form-group input-group">
         <div class="input-group-prepend">
             <span class="input-group-text"> <i class="fa fa-address-card"></i> </span>
         </div>
-        <input name="password" class="form-control" placeholder="address2" type="address" [(ngModel)]="register.address2">
+        <input name="address2" class="form-control" placeholder="address2" type="text" [(ngModel)]="register.address2">
     </div>
 
     <div class="form-group input-group">
         <div class="input-group-prepend">
             <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
         </div>
-        <input name="password" class="form-control" placeholder="City" type="city" [(ngModel)]="register.city">
+        <input name="city" class="form-control" placeholder="City" type="text" [(ngModel)]="register.city">
     </div> <!-- form-group// -->
      <div class="form-group input-group">
         <div class="input-group-prepend">
             <span class="input-group-text"> <i class="fa fa-flag"></i> </span>
         </div>
-        <input name="password" class="form-control" placeholder="State" type="state" [(ngModel)]="register.state">
+        <input name="state" class="form-control" placeholder="State" type="text" [(ngModel)]="register.state">
     </div> <!-- form-group// -->
      <div class="form-group input-group">
         <div class="input-group-prepend">
             <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
         </div>
-        <input name="password" class="form-control" placeholder="Contry" type="contry" [(ngModel)]="register.country">
+        <input name="country" class="form-control" placeholder="Contry" type="text" [(ngModel)]="register.country">
     </div> <!-- form-group// -->
     <div class="form-group input-group">
         <div class="input-group-prepend">
             <span class="input-group-text"> <i class="fa fa-map-pin"></i> </span>
         </div>
-        <input name="confirmpassword" class="form-control" placeholder="Pincode" type="pincode" [(ngModel)]="register.pincode">
+        <input name="pincode" class="form-control" placeholder="Pincode" type="text" [(ngModel)]="register.pincode">
     </div> <!-- form-group// -->
 
 
@@ -65,14 +65,14 @@
         <div class="input-group-prepend">
             <span class="input-group-text"> <i class="fa fa-user"></i> </span>
          </div>
-        <input name="name" class="form-control" placeholder="firstname" type="text" [(ngModel)]="register.firstname">
+        <input name="firstname" class="form-control" placeholder="firstname" type="text" [(ngModel)]="register.firstname">
     </div>
 
     <div class="form-group input-group">
         <div class="input-group-prepend">
             <span class="input-group-text"> <i class="fa fa-user"></i> </span>
          </div>
-        <input name="name" class="form-control" placeholder="lastname" type="text" [(ngModel)]="register.lastname">
+        <input name="lastname" class="form-control" placeholder="lastname" type="text" [(ngModel)]="register.lastname">
     </div> <!-- form-group// -->
     <div class="form-group input-group">
         <div class="input-group-prepend">
@@ -85,7 +85,7 @@
             <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
         </div>
     
-        <input name="phonenumber" class="form-control" placeholder="phone_number" type="text" [(ngModel)]="register.phone_number">
+        <input name="phone_number" class="form-control" placeholder="phone_number" type="text" [(ngModel)]="register.phone_number">
     </div> <!-- form-group// -->
    
     <div class="form-group input-group">
@@ -97,7 +97,7 @@
    
                                            
     <div class="form-group">
-        <button type="submit" class="btn btn-primary btn-block" (click)="registersave()" [disabled]="!register.password" [disabled]="!register.email"> Create Account  </button>
+        <button type="submit" class="btn btn-primary btn-block" (click)="registersave()" [disabled]="!register.password"> Create Account  </button>
     </div> <!-- form-group// -->      
     <p class="text-center">Have an account? <a class="nav-link"  [routerLink]="['']">Log In</a> </p>                                                                 
 </form>

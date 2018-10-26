@@ -1,0 +1,119 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+  crossorigin="anonymous">
+
+<body>
+
+
+  
+  <div class="container db_cards frontbody">
+
+    <div class="row">
+  
+      <div class="col-md-2" align="center" id="dashboard" >
+        <div class="card">
+          <i  class="fab fa-microsoft"></i>
+
+          <div class="card-body">
+            <h5 class="card-title">Dashboard</h5>
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <div class="col-md-2" align="center" id="alarms" ng-click="pageverification('/#!/alarms')">
+        <div class="card">
+          <i class="fas fa-bell"></i>
+          <div class="card-body">
+            <h5 class="card-title">Alarms</h5>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-2" align="center" id="alerts" ng-click="pageverification('/#!/alert')">
+        <div class="card">
+          <i class="fas fa-exclamation-triangle"></i>
+          <div class="card-body">
+            <h5 class="card-title">Alerts</h5>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-2" align="center" id="alarmreports" ng-click="pageverification('/#!/alarmsreport')">
+        <div class="card">
+          <i class="far fa-folder-open"></i>
+          <div class="card-body">
+            <h5 class="card-title">Alarm reports</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-2" align="center" id="log" ng-click="pageverification('/#!/connectionlog')">
+        <div class="card">
+          <i class="fas fa-history"></i>
+          <div class="card-body">
+            <h5 class="card-title">Log</h5>
+          </div>
+        </div>
+      </div>
+
+
+
+
+    </div>
+
+    <div class="row">
+
+      <div class="col-md-2" align="center" id="report" ng-click="pageverification('/#!/report')">
+        <div class="card">
+          <i class="far fa-file"></i>
+          <div class="card-body">
+            <h5 class="card-title">Report</h5>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-2" align="center" id="maintenance" ng-click="pageverification('/#!/notification')">
+        <div class="card">
+          <i class="fas fa-wrench"></i>
+          <div class="card-body">
+            <h5 class="card-title">Notification Setting</h5>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-md-2" align="center" id="masters" ng-click="pageverification('/#!/machine_registration')">
+        <div class="card">
+          <i class="fas fa-money-check"></i>
+          <div class="card-body">
+            <h5 class="card-title">Masters</h5>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="col-md-2" align="center" id="export" ng-click="pageverification('/#!/operator_allocation_masters')">
+        <div class="card">
+          <i class="fas fa-user-plus"></i>
+          <div class="card-body">
+            <h5 class="card-title">Operator Allocation</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-2" align="center" id="operatorentry" ng-click="pageverification('/#!/usermanagement')">
+        <div class="card">
+          <i class="fas fa-users"></i>
+          <div class="card-body">
+            <h5 class="card-title">Users</h5>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div ng-include="'footer.html'"></div>
+</body>

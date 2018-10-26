@@ -17,30 +17,27 @@ export class LoginComponent implements OnInit {
  user:any;
  token : any = {};
  constructor(private router:Router,private Login:LoginService) { }
-ngOnInit() {
+ ngOnInit() {
   
 }
+//console.log(this.user);
 loginsave(){
-    this.Login.userlogin(this.login).subscribe( res => {
-    this.user = res;
-         if(this.user){
-          
-        swal  ("Registered!", "You Have Sucessfully Registered", "success");
-        this.router.navigate(['dashboard']);
-        }else{
-          swal("Not Registered!", "Registration Failed" , "error");
-        }
-       console.log(this.user.access_token);
-      // localStorage.getItem('this.user.access_token');
-       localStorage.setItem("name",this.user.access_token);
-       this.token=localStorage.getItem("name");
-       //console.log(this.token);
-      },
-     error => {
-         console.error("Error saving food!");
-         return Observable.throw(error);
-        });
+  this.Login.userlogin(this.login).subscribe( res => {
+  this.user = res;
+  //alert(this.user.user.user_type_id);
+  console.log(this.user.user.user_type_id);
+  if(this.user.user.user_type_id == 1){
+    localStorage.setItem("name",this.user.access_token);
+    localStorage.setItem("usertype_id", this.user.usertype_id);
+    swal ("Login!", "Login Sucessfull", "success");
+    this.router.navigate(['forget']);
+  }else if(this.user.user.user_type_id == 2){
+    localStorage.setItem("name",this.user.access_token);
+    localStorage.setItem("usertype_id",this.user.usertype_id);
+    swal ("Login!", "Login Sucessfull", "success");
+    this.router.navigate(['dashboard']);  
+  }
+});
 
-    }
-    
+}
 }

@@ -1,62 +1,148 @@
 
-<!-- Side Navbar -->
 
-  <div class="side-navbar-wrapper">
-    <div class="sidenav-header d-flex align-items-center justify-content-center">
-      <!-- <img src="assets/images/logo.jpg"> -->
-    </div>
-    <div class="main-menu">
-      <ul id="side-main-menu" class="side-menu list-unstyled">        
-              <span>Home</span>
-<!-- 
-        <li><i class="fa fa-th-large" aria-hidden="true" ></i><span>Dashboard</span></li>
-
-        <li> <i class="fa fa-bell-o" aria-hidden="true"></i><span>Alarms</span></li>
-
-        <li> <i class="fa fa-exclamation-triangle" aria-hidden="true"></i><span>Alerts</span></li>
-         
-        <li> <i class="fa fa-folder-open-o" aria-hidden="true"></i><span>Alarms Report</span></li>
-        <li><i class="fa fa-history" aria-hidden="true"></i><span>Log</span></li>
-
-         <li><i class="fa fa-file-text-o" aria-hidden="true"></i><span>Report</span></li>
-
-
-       <li><i class="fa fa-bar-chart" aria-hidden="true"></i><span>Charts</span></li>
-
-       <li><i class="fa fa-line-chart" aria-hidden="true"></i><span>Cycle Start Chart</span></li>
-
-       <li><i class="fa fa-wrench" aria-hidden="true"></i><span>Notification Setting</span></li>
-        <li><i class="fa fa-list-alt" aria-hidden="true"></i><span>Masters</span> -->
-         <!--  <div class="arrow rotate pull-right"><i></i>
-          </div>
+      <section class="statistics section-padding section-no-padding-bottom section_top">
         
-          <br> -->
-         <!--  <ul  class="list-unstyled">
-            <li> <i class="fa fa-desktop" aria-hidden="true"></i><span>Machine
-            </span></li>
-            <li> <i class="fa fa-clock-o" aria-hidden="true"></i><span>Shift</span></li>
-            <li> <i class="fa fa-users" aria-hidden="true"></i><span>Client<span></li>
-            <li> <i class="fa fa-handshake-o" aria-hidden="true"></i><span>Job</span></li>
-            <li> <i class="fa fa-user-o" aria-hidden="true"></i><span>User</span></li>
-            <li> <i class="fa fa-user-circle-o" aria-hidden="true"></i><span>Operator</span></li>
-            <li> <i class="fa fa-user-plus" aria-hidden="true"></i>
-            <span>Operator Allocation</span></li>  -->
+          <header style="background: #fff; padding: 20px; margin-top: -17px; box-shadow: 3px 3px 3px #eaeaea;"> 
+             
           
-          </ul>
-   <!--      </li>
-      </ul> 
-    </div> -->
-  </div> 
+      
+           <h1 class="h3 display top"><i class="fa fa-laptop"></i>Overall Machine Status
+           <ul>
+             <li><span class="dot_running"></span>Running</li>
+             <li><span class="dot_idle"></span>Idle</li>
+             <li><span class="dot_stop"></span>Stop</li>
+             <li><span class="dot_nodata"></span>No Data</li>
+             <li ng-click="dashboard()" style="cursor:pointer"><i class="fa fa-refresh "></i></li>
+           </ul>
+           <div class="float-right entry_time"><span>Today:</span>{{ clock | date:'dd-MM-yyyy hh:mm:ss a'}} <span>Shift Time:</span> {{check.data["Unit - 1"][0].start_time | date:'dd-MM-yyyy hh:mm a'}} <span>Shift:</span> {{check.data["Unit - 1"][0].shift_no}}</div>
+           </h1>
+         </header>
+                <div class="container-fluid">
+         <div *ngFor="let item of check.data | keyvalue">
+          
+                  <div class="row" style="margin-bottom:5px;">
+                  <div style="text-align: right;border-bottom:1px solid #ddd; padding-bottom: 10px; margin-top: 10px;" class="col col-100 mec_status">
+                      <span style="float:left;font-size:16px">{{item.key}}</span>
+                      <span class="statusHeader"  style="font-size:14px; color: #f69123" >Machines({{check.data[item.key].length}})</span>
+                      <span class="statusHeader" style="font-size:14px; color: #396ae2;">Running({{check.count[item.key].running}})</span>
+                      <span class="statusHeader"   style="font-size:14px; color: #396ae2;">Idle({{check.count[item.key].idle * 1 + check.count[item.key]?.idle1 * 1}})</span>
+                      <span class="statusHeader" style="font-size:14px; color: #396ae2;">Stop({{check.count[item.key].stop}})</span>
+                  </div>
+                </div>
 
+              
+               
+                <div class="row d-flex align-items-stretch" >
+            <div class="col-lg-3"  *ngFor="let item1 of check.data[item.key]">
+            
+             
+            <div class="time_secn">
+               <span >
+                    <label>Start Time:</label>
+                    <div *ngIf="item1?.day_start != 0" class="time_inner">
+                    {{item1?.day_start | date:'dd/MM/yyyy'}}
+                    {{item1?.day_start| date:'hh:mm:ss a'}}
+                  </div>
+                   <div *ngIf="item1?.day_start == 0" class="time_inner">
+                    00-00-00
+                    00:00:00 AM
+                  </div>
+                  </span>
+                  <div class="clearfix"></div>
+                  <span >
+                      <label>Last Update:</label>
+                      <div *ngIf="item1?.last_update != 0" class="time_inner">
+                      {{item1?.last_update | date:'dd/MM/yyyy'}}
+                      {{item1?.last_update | date:'hh:mm:ss a'}}
+                    </div>
+                     <div *ngIf="item1?.last_update == 0" class="time_inner">   
+                      00-00-00
+                      00:00:00 AM
+                    </div>      
+                    </span>    
+                    </div>  
+              <div class="wrapper data-usage">
+                <div class="wrapper_idle" [ngClass]="{running :item1?.machine_status =='3' ,stopped :item1?.machine_status=='100',nodata: item1?.machine_status == null,idle : item1?.machine_status != '3' && item1?.machine_status !='100' && item1?.machine_status != null}">
+                  <h2 class="display h4">
+                    <a href=""  style="color:black">{{item1?.machine_name}}</a>
+                  </h2>
+                  <div class="row d-flex align-items-center">
+                    <div class="col-sm-12">
 
+                    </div>
+                    <div class="col-sm-12">
+                      <span style="height: 46px;" *ngIf="item1?.job_name!=null" >
+                        <a style="cursor: none;" href="" >{{item1?.job_name}}11</a>
+                      </span>
+                    </div>
+                   
+                    <div class="col-sm-12" *ngIf="item1?.job_name==null">
+                      <span style="height: 46px;">
+                        <a>Not Available</a>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="row status_icon">
+                    <div class="col-md-12" data-toggle="modal" data-target="#exampleModalLabel5" ng-click="PartsCountModal(item1?.job_wise_part);modelshow=0" style="cursor:pointer; margin-bottom:10px;" >
+                          <strong>Parts Produced </strong>
+                        <div class="row" style="margin-top: 5px;">
+                        <div class="col-md-6" style="font-size: 14px; border-right: 1px solid #cdcdcd; padding-right: 11px;">
+                        <b style="color: #f6931e;">MD :</b> {{item1?.controller_part}}nos
+                         </div>
+                         <div class="col-md-6" style="font-size: 14px;">
+                            <b style="color: #f6931e;">C :</b> {{item1?.parts_count}}nos
+                        </div>
+                        </div>
+                        </div>
+                        <table class="table table-striped table_db">
+                            <tr>
+                                <td><i class="fa fa-clock-o"></i></td>
+                                <td>Cycle Time</td>
+                                <td>{{item1?.cycle_time}}</td>
+                              </tr>
 
-<script type="text/javascript">
+                              <tr>
+                                  <td><i class="fa fa-angle-double-right"></i></td>
+                                  <td>Run Time</td>
+                                  <td>{{item1?.total_run_time}}</td>
+                                </tr>
 
-</script>
-
-<style type="text/css">
-
-.activebar{
-background-color:#f7941d;
-}
-</style>
+                          <tr  data-toggle="modal" data-target="#exampleModalLabel4"
+                          ng-click="Downtime(item1?.total_load_unload_time,item1?.idle_time,item1?.downtime);modelshow=0 " style="cursor:pointer">
+                            <td><i class="fa fa-angle-double-down"></i></td>
+                            <td>Down Time</td>
+                            <td>{{item1?.downtime}}</td>
+                          </tr>
+                         
+                            <tr  data-toggle="modal" data-target="#exampleModalLabel4"
+                          ng-click="Downtime(item1?.total_load_unload_time,item1?.idle_time,y.downtime);modelshow=0 " style="cursor:pointer">
+                            <td><i class="fa fa-hand-paper-o" style="font-size: 20px;"></i></td>
+                            <td>Stop Time</td>
+                            <td>{{item1?.total_stop_time}}</td>
+                          </tr>
+                         
+                        </table>
+               
+                  </div>
+            </div> 
+          </div>
+          </div>
+          </div>
+          </div>
+      </section>
+    
+      <footer class="main-footer">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-sm-6">
+              <p>Yantra 2017-2018</p>
+            </div>
+            <div class="col-sm-6 text-right">
+              <p>Developed by<a href="https://altiussolutions.com" class="external">Altius Solutions</a></p>
+             </div>
+          </div>
+        </div>
+      </footer>
+    
+  

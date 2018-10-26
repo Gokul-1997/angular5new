@@ -1,0 +1,55 @@
+ body {
+    background: url("/assets/images/bg_login.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .db_cards .col-md-2 {
+    cursor: pointer;
+    float: none !important;
+    margin: 0 auto !important;
+  }
+
+  .container {
+    padding-top: 200px;
+    width: 1140px;
+    max-width: 100%;
+  }
+
+  .db_cards .card-body>h5 {
+    color: #333;
+    font-size: 14px;
+    position: relative;
+    top: 5px;
+  }
+
+  .db_cards .card {
+    padding: 30px 20px;
+    width: 200px;
+    border: solid 2px white;
+    border-radius: 10px;
+  }
+
+  .db_cards .card>i {
+    font-size: 40px;
+    color: #f79220;
+
+  }
+
+  .db_cards .row {
+    padding: 10px 0px;
+  }
+
+
+  .db_cards .card:hover {
+    -webkit-box-shadow: 2px 5px 77px -1px rgba(55, 55, 55, 1);
+    -moz-box-shadow: 2px 5px 77px -1px rgba(55, 55, 55, 1);
+    box-shadow: 2px 5px 77px -1px rgba(55, 55, 55, 1);
+  }
+
+  .db_cards .card:hover i.fab,
+  .db_cards .card:hover i.fas,
+  .db_cards .card:hover i.far {
+    transition: .2s ease-in;
+    transform: rotate(20deg);
+  }

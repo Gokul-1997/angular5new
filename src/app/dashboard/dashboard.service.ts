@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
+import { Global } from '../global';
 
 
 const httpOptions = {
@@ -13,18 +14,18 @@ const httpOptions = {
 })
 export class DashboardService {
 
-  constructor(public http:HttpClient) { }
+  constructor(public http:HttpClient, public global:Global) { }
 
 
-sendmailtest(data) {
-        return this.http.post('http://192.168.1.107:5500/ideas/send_now',{"idea":data});
-    }
-
-
-  
 tokenuse() {
-        return this.http.get('http://192.168.1.71:3050/api/v1/usersetting?id=1');
+        return this.http.get(this.global.apiUrl+'usersetting?id=1');
     }
+
+
+checkdashboard() {
+        return this.http.get('http://192.168.1.48:3007/api/v1/machines/dashboard_live?tenant_id=8');
+    }
+
 
 
 }
